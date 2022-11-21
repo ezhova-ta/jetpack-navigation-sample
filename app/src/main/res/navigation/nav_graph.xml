@@ -3,23 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
-
-    <action
-        android:id="@+id/action_global_mainFragment"
-        app:destination="@id/mainFragment" />
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.jetpacknavigationsample.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_whiteCatsFragment"
-            app:destination="@id/whiteCatsFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_blackCatsFragment"
-            app:destination="@id/blackCatsFragment" />
-    </fragment>
+    app:startDestination="@id/whiteCatsFragment">
 
     <fragment
         android:id="@+id/whiteCatsFragment"

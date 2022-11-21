@@ -23,10 +23,6 @@ class BlackCatsFragment : Fragment() {
     }
 
     private fun setupButtons() {
-        binding.mainScreenButton.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_global_mainFragment)
-        }
-
         binding.detailButton.setOnClickListener { view ->
             val action = BlackCatsFragmentDirections.showCatDetail(512)
             view.findNavController().navigate(action)
