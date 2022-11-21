@@ -6,18 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.jetpacknavigationsample.databinding.FragmentBlackCatsBinding
+import androidx.navigation.fragment.navArgs
+import com.example.jetpacknavigationsample.databinding.FragmentConcreteCatBinding
 
-class BlackCatsFragment : Fragment() {
-    private var _binding: FragmentBlackCatsBinding? = null
+class ConcreteCatFragment : Fragment() {
+    private var _binding: FragmentConcreteCatBinding? = null
     private val binding get() = _binding!!
+
+    private val args: ConcreteCatFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBlackCatsBinding.inflate(inflater, container, false)
+        _binding = FragmentConcreteCatBinding.inflate(inflater, container, false)
         setupButtons()
         return binding.root
     }
@@ -26,11 +29,10 @@ class BlackCatsFragment : Fragment() {
         binding.mainScreenButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_global_mainFragment)
         }
+    }
 
-        binding.detailButton.setOnClickListener { view ->
-            val action = BlackCatsFragmentDirections.showCatDetail(512)
-            view.findNavController().navigate(action)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.catNameView.text = "Cat ID: ${args.catId}"
     }
 
     override fun onDestroyView() {

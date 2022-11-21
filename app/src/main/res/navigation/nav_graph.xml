@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
@@ -23,11 +24,26 @@
     <fragment
         android:id="@+id/whiteCatsFragment"
         android:name="com.example.jetpacknavigationsample.WhiteCatsFragment"
-        android:label="WhiteCatsFragment" />
+        android:label="WhiteCatsFragment" >
+    </fragment>
 
     <fragment
         android:id="@+id/blackCatsFragment"
         android:name="com.example.jetpacknavigationsample.BlackCatsFragment"
-        android:label="BlackCatsFragment" />
+        android:label="BlackCatsFragment" >
+        <action
+            android:id="@+id/showCatDetail"
+            app:destination="@id/concreteCatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/concreteCatFragment"
+        android:name="com.example.jetpacknavigationsample.ConcreteCatFragment"
+        android:label="fragment_concrete_cat"
+        tools:layout="@layout/fragment_concrete_cat">
+        <argument
+            android:name="catId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
