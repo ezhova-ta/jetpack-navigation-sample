@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.jetpacknavigationsample.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_whiteCatsFragment"
+            app:destination="@id/whiteCatsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_blackCatsFragment"
+            app:destination="@id/blackCatsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/whiteCatsFragment"
+        android:name="com.example.jetpacknavigationsample.WhiteCatsFragment"
+        android:label="WhiteCatsFragment" />
+
+    <fragment
+        android:id="@+id/blackCatsFragment"
+        android:name="com.example.jetpacknavigationsample.BlackCatsFragment"
+        android:label="BlackCatsFragment" />
+
+</navigation>
