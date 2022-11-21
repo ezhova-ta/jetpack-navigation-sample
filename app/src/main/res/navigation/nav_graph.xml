@@ -4,6 +4,10 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
+    <action
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment" />
+
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.jetpacknavigationsample.MainFragment"
