@@ -1,25 +1,18 @@
 package com.example.jetpacknavigationsample
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.jetpacknavigationsample.databinding.FragmentBlackCatsBinding
 
-class BlackCatsFragment : Fragment() {
-    private var _binding: FragmentBlackCatsBinding? = null
-    private val binding get() = _binding!!
+class BlackCatsFragment : Fragment(R.layout.fragment_black_cats) {
+    private val binding by viewBinding(FragmentBlackCatsBinding::bind)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentBlackCatsBinding.inflate(inflater, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupButtons()
-        return binding.root
     }
 
     private fun setupButtons() {
@@ -27,10 +20,5 @@ class BlackCatsFragment : Fragment() {
             val action = BlackCatsFragmentDirections.showCatDetail(512)
             view.findNavController().navigate(action)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
